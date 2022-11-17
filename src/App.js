@@ -61,7 +61,8 @@ const onHandleScroll = (e) => {
               return data;
             } else if (data.name.toLowerCase().includes(query.toLowerCase())) {
               return data;
-            }
+            } 
+            return console.log(data)
           })
           .map((data, index) => {
             return (
