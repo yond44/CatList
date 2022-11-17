@@ -1,65 +1,4 @@
-// import React, {useEffect, useState} from "react";
-// import "./App.css";
-// import useCollapse from "react-collapsed";
-// import "./styles.scss";
-// import Axios from 'axios'
-
-// function App() {
-//   const [data, setData] = useState([])
-//  const { getCollapseProps, getToggleProps } = useCollapse();
-//   useEffect(() => {
-//     Axios.get("https://api.thecatapi.com/v1/breeds")
-//     .then(res=> {console.log(res.data)
-//     setData(res.data)}).catch(err => console.log(err));
-//   }, [])
-
-//   const arr = data.map((data, index) => {
-//     return (
-//       <tr>
-//         <td className="header btn toggle" {...getToggleProps()}>
-//           {data.name}
-//         </td>
-//         <div {...getCollapseProps()}>
-//           <div className="content">
-//             Now you can see the hidden content. <br />
-//             <br />
-//             Click again to hide...
-//           </div>
-//         </div>
-//       </tr>
-//     );
-//   })
-//   return (
-//     <div className="app">
-//       <header>
-//         {arr}
-//       </header>
-//       <div>
-//         <tr>
-//           <td>
-//             <button className="header btn toggle" {...getToggleProps()}>
-//               {arr}
-//             </button>
-//             <div {...getCollapseProps()}>
-//               <div className="content">
-//                 Now you can see the hidden content. <br />
-//                 <br />
-//                 Click again to hide...
-//               </div>
-//             </div>
-//           </td>
-//         </tr>
-//       </div>
-
-//       <p>Some content below the collapsibles.</p>
-//     </div>
-//   );
-// }
-
-// export default App;
-
 import React, { useEffect, useState } from "react";
-
 import "./styles.scss";
 import Axios from "axios";
 import Collapsible from "react-collapsible";
@@ -72,13 +11,7 @@ const App = () => {
   const [expand] = useState("[Click Here]");
   const [query, setQuery] = useState("");
 
-  function collapse (expand) {
-    if (expand === "[Click Here]") {
-      return "[Collapse]";
-    } else {
-      return "[Expand]";
-    }
-  }
+
       const getData = () => {
         Axios.get(
           "https://api.thecatapi.com/v1/breeds"
@@ -139,7 +72,6 @@ const onHandleScroll = (e) => {
                   <Collapsible
                     className="expand"
                     trigger={expand}
-                    onClick={collapse}
                   >
                     <div style={{ width: "55%" }}>
                       {data.image != null ? (
